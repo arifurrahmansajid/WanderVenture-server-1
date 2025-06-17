@@ -27,20 +27,7 @@ const logger = (req, res, next) => {
   next()
 }
 
-// Updated verifyToken to use ACCESS_TOKEN_SECRET
-const verifyToken = (req, res, next) => {
-  const token = req?.cookies?.token
-  if (!token) {
-    return res.status(401).send({ message: 'unauthorized access - token missing' })
-  }
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ message: 'unauthorized access - invalid token' })
-    }
-    req.user = decoded
-    next()
-  })
-}
+
 
 // MongoDB connection using DB_ACCESS_TOKEN
 const uri = process.env.DB_ACCESS_TOKEN;
