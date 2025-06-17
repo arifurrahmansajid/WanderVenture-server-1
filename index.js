@@ -16,10 +16,11 @@ const cookieOptions = {
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'https://hotel-appoinmnet-system.web.app'
   ],
   credentials: true,
   optionsSuccessStatus: 200,
-}))
+}));
 app.use(express.json())
 app.use(cookieParser())
 
