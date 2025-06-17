@@ -77,12 +77,6 @@ async function run() {
         .send({ success: true });
     });
 
-    // Public route to fetch rooms
-    app.get('/rooms', async (req, res) => {
-      const cursor = roomsCollection.find()
-      const result = await cursor.toArray()
-      res.send(result)
-    });
 
     // Fetch room by ID
     app.get('/rooms/:id', async (req, res) => {
