@@ -7,6 +7,12 @@ const jwt = require('jsonwebtoken')
 const app = express()
 const port = process.env.PORT || 5000
 
+const cookieOptions = {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+};
+
 app.use(cors({
   origin: [
     'http://localhost:5173',
